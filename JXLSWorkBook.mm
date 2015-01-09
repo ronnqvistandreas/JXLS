@@ -181,4 +181,21 @@ using namespace xlslib_strings;
 	return WORKBOOK(_workBook)->setColor(red, green, blue, idx);
 }
 
+-(BOOL)setColorWithRed:(uint8_t)red
+                 green:(uint8_t)green
+                  blue:(uint8_t)blue
+                  name:(color_name_t)color
+{
+    xf_t * tempXF = _workBook->xformat();
+    
+    tempXF->SetFillBGColor(color);
+    unsigned16_t idx = tempXF->GetFillBGColorIdx();
+    
+    bool success = WORKBOOK(_workBook)->setColor(red, green, blue, idx);
+    
+    tempXF->MarkUsed();
+    
+    return success;
+}
+
 @end

@@ -32,4 +32,9 @@
 				 green:(uint8_t)green
 				  blue:(uint8_t)blue
 				 index:(uint8_t)idx;								// 8 <= idx <= 64
+
+-(BOOL)setColorWithRed:(uint8_t)red
+                 green:(uint8_t)green
+                  blue:(uint8_t)blue
+                  name:(color_name_t)color;
 @end
